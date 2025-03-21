@@ -12,16 +12,16 @@ $(document).ready(function () {
     });
     btn_open.click(function () {
       open();
-      mostrarImagen1.attr("src", "foto1.jpg"); // Reemplaza "ruta/tu_imagen.jpg" con la ruta de tu imagen
+      mostrarImagen1.attr("src", "fotogato1.jpg"); // Reemplaza "ruta/tu_imagen.jpg" con la ruta de tu imagen
       mostrarImagen1.show();
 
-      mostrarImagen2.attr("src", "foto2.jpg"); // Reemplaza "ruta/tu_imagen.jpg" con la ruta de tu imagen
+      mostrarImagen2.attr("src", "fotogato2.jpg"); // Reemplaza "ruta/tu_imagen.jpg" con la ruta de tu imagen
       mostrarImagen2.show();
 
-      mostrarImagen3.attr("src", "foto3.jpg"); // Reemplaza "ruta/tu_imagen.jpg" con la ruta de tu imagen
+      mostrarImagen3.attr("src", "fotogato3.jpg"); // Reemplaza "ruta/tu_imagen.jpg" con la ruta de tu imagen
       mostrarImagen3.show();
 
-      mostrarImagen4.attr("src", "foto4.jpg"); // Reemplaza "ruta/tu_imagen.jpg" con la ruta de tu imagen
+      mostrarImagen4.attr("src", "fotogato4.jpg"); // Reemplaza "ruta/tu_imagen.jpg" con la ruta de tu imagen
       mostrarImagen4.show();
         
     });
