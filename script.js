@@ -3,57 +3,71 @@ $(document).ready(function () {
     var btn_open = $("#open");
     var container = $("#container");
     var corazones = $("#corazones");
-    var imagenes = [
-        $("#mostrarImagen1"),
-        $("#mostrarImagen2"),
-        $("#mostrarImagen3"),
-        $("#mostrarImagen4")
-    ];
-
-    // Evento al hacer clic en el botón
+    var imagenesContainer = $("#imagenes-container");
+    var imagenes = $("#imagenes-container img");
+    
+    // Ocultamos el contenedor de imágenes al inicio
+    imagenesContainer.hide();
+    
     btn_open.click(function () {
         abrirSobre();
     });
-
+    
     function abrirSobre() {
         envelope.addClass("open").removeClass("close");
-
-        // Animación de corazones y luego limpiamos la pantalla
-        corazones.fadeIn(500).delay(2000).fadeOut(500, function () {
-            limpiarPantalla();
-            setTimeout(mostrarImagenesSecuencialmente, 1000); // Espera antes de mostrar imágenes
-        });
+        
+        // Mostrar y animar corazones después de que el sobre se abra
+        setTimeout(function() {
+            // Mostrar el contenedor de corazones
+            corazones.css({
+                'display': 'block'
+            });
+            
+            // Reiniciar posición de los corazones por si se ha abierto antes
+            $(".heart").css({
+                'bottom': '-30px',
+                'opacity': '0'
+            });
+            
+            // Activar animación de corazones subiendo
+            $(".heart.a1").css("animation", "subir 3s ease-out forwards");
+            $(".heart.a2").css("animation", "subir 3.5s ease-out forwards 0.3s");
+            $(".heart.a3").css("animation", "subir 4s ease-out forwards 0.6s");
+            
+            // Esperar a que terminen las animaciones y continuar
+            setTimeout(function() {
+                corazones.fadeOut(300, function() {
+                    limpiarPantalla();
+                    setTimeout(mostrarImagenesSecuencialmente, 800);
+                });
+            }, 4500); // Esperar lo suficiente para que terminen todas las animaciones
+            
+        }, 800); // Dar tiempo a que el sobre se abra completamente
     }
-
+    
     function limpiarPantalla() {
         container.fadeOut(500, function () {
             $("body").css({
-                "background": "#FFD1DC", // Fondo rosa pastel
-                "display": "flex",
-                "justify-content": "center",
-                "align-items": "center",
-                "height": "100vh"
+                "background": "#FFD1DC"
             });
+            imagenesContainer.fadeIn(500);
         });
     }
-
+    
     function mostrarImagenesSecuencialmente() {
         let index = 0;
-
+        
         function mostrarSiguienteImagen() {
             if (index > 0) {
-                imagenes[index - 1].fadeOut(500); // Oculta la imagen anterior
+                imagenes.eq(index - 1).fadeOut(500);
             }
-
-            imagenes[index].fadeIn(500); // Muestra la imagen actual con fade
-
+            imagenes.eq(index).fadeIn(500);
             index++;
-
             if (index < imagenes.length) {
-                setTimeout(mostrarSiguienteImagen, 3000); // Espera antes de la siguiente imagen
+                setTimeout(mostrarSiguienteImagen, 3000);
             }
         }
-
-        setTimeout(mostrarSiguienteImagen, 2000); // Primera espera antes de iniciar la secuencia
+        
+        mostrarSiguienteImagen();
     }
 });
