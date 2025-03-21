@@ -223,6 +223,11 @@
 }
 body {
   background-color: #f7d9da;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 .envlope-wrapper {
@@ -231,6 +236,7 @@ body {
 
 .reset {
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .reset button {
@@ -258,7 +264,7 @@ body {
   color: #a10000;
 }
 #mostrarImagen1 {
-  position: absolute;
+  position: relative;
   top: 80%; /* Alinea la parte superior de la imagen al centro verticalmente */
   left: 50%; /* Alinea la izquierda de la imagen al centro horizontalmente */
   transform: translate(-50%, -50%); /* Centra completamente la imagen */
@@ -268,7 +274,7 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Agrega una sombra para destacar la imagen */
 }
 #mostrarImagen2 {
-  position: absolute;
+  position: relative;
   top: 75%; /* Alinea la parte superior de la imagen al centro verticalmente */
   left: 27%; /* Alinea la izquierda de la imagen al centro horizontalmente */
   transform: translate(-50%, -50%); /* Centra completamente la imagen */
@@ -279,7 +285,7 @@ body {
 }
 
 #mostrarImagen3 {
-  position: absolute;
+  position: relative;
   top: 30%; /* Alinea la parte superior de la imagen al centro verticalmente */
   left: 30%; /* Alinea la izquierda de la imagen al centro horizontalmente */
   transform: translate(-50%, -50%); /* Centra completamente la imagen */
@@ -290,7 +296,7 @@ body {
 }
 
 #mostrarImagen4 {
-  position: absolute;
+  position: relative;
   top: 50%; /* Alinea la parte superior de la imagen al centro verticalmente */
   left: 90%; /* Alinea la izquierda de la imagen al centro horizontalmente */
   transform: translate(-50%, -50%); /* Centra completamente la imagen */
@@ -299,36 +305,63 @@ body {
   border: 2px solid #ff5757; /* Agrega un borde alrededor de la imagen */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Agrega una sombra para destacar la imagen */
 }
-
-#mostrarImagen5 {
-  position: absolute;
-  top: 30%; /* Alinea la parte superior de la imagen al centro verticalmente */
-  left: 70%; /* Alinea la izquierda de la imagen al centro horizontalmente */
-  transform: translate(-50%, -50%); /* Centra completamente la imagen */
-  max-width: 40%; /* Establece un ancho máximo del 80% del contenedor */
-  max-height: 30vh; /* Establece una altura máxima del 80% del viewport height */
-  border: 2px solid #ff5757; /* Agrega un borde alrededor de la imagen */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Agrega una sombra para destacar la imagen */
+#container {
+  position: relative;
+  text-align: center;
 }
 
-#mostrarImagen6 {
+#corazones {
+  display: none;
   position: absolute;
-  top: 50%; /* Alinea la parte superior de la imagen al centro verticalmente */
-  left: 10%; /* Alinea la izquierda de la imagen al centro horizontalmente */
-  transform: translate(-50%, -50%); /* Centra completamente la imagen */
-  max-width: 30%; /* Establece un ancho máximo del 80% del contenedor */
-  max-height: 40vh; /* Establece una altura máxima del 80% del viewport height */
-  border: 2px solid #ff5757; /* Agrega un borde alrededor de la imagen */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Agrega una sombra para destacar la imagen */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  animation: flotar 2s ease-in-out infinite;
 }
 
-#mostrarImagen7 {
+@keyframes flotar {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  50% { transform: translate(-50%, -60%) scale(1.2); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+img {
+  display: none; /* Oculta todas las imágenes al inicio */
+  max-width: 50%;
+  height: auto;
   position: absolute;
-  top: 75%; /* Alinea la parte superior de la imagen al centro verticalmente */
-  left: 72%; /* Alinea la izquierda de la imagen al centro horizontalmente */
-  transform: translate(-50%, -50%); /* Centra completamente la imagen */
-  max-width: 20%; /* Establece un ancho máximo del 80% del contenedor */
-  max-height: 40vh; /* Establece una altura máxima del 80% del viewport height */
-  border: 2px solid #ff5757; /* Agrega un borde alrededor de la imagen */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Agrega una sombra para destacar la imagen */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+#image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fefefe;
+    z-index: 10;
+    display: none;
+}
+
+#image-container img {
+    max-width: 60%;
+    max-height: 70vh;
+    margin-bottom: 20px;
+    display: none;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
 }
