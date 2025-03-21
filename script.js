@@ -6,9 +6,6 @@ $(document).ready(function () {
     var mostrarImagen2 = $("#mostrarImagen2");
     var mostrarImagen3 = $("#mostrarImagen3");
     var mostrarImagen4 = $("#mostrarImagen4");
-    var mostrarImagen5 = $("#mostrarImagen5");
-    var mostrarImagen6 = $("#mostrarImagen6");
-    var mostrarImagen7 = $("#mostrarImagen7");
   
     envelope.click(function () {
       open();
@@ -26,26 +23,9 @@ $(document).ready(function () {
 
       mostrarImagen4.attr("src", "foto4.jpg"); // Reemplaza "ruta/tu_imagen.jpg" con la ruta de tu imagen
       mostrarImagen4.show();
-
-      mostrarImagen5.attr("src", "foto5.jpg"); // Reemplaza "ruta/tu_imagen.jpg" con la ruta de tu imagen
-      mostrarImagen5.show();
-
-      mostrarImagen6.attr("src", "foto6.jpg"); // Reemplaza "ruta/tu_imagen.jpg" con la ruta de tu imagen
-      mostrarImagen6.show();
-
-      mostrarImagen7.attr("src", "foto7.jpg"); // Reemplaza "ruta/tu_imagen.jpg" con la ruta de tu imagen
-      mostrarImagen7.show();
+        
     });
-    btn_reset.click(function () {
-      close();
-      mostrarImagen1.hide();
-      mostrarImagen2.hide();
-      mostrarImagen3.hide();
-      mostrarImagen4.hide();
-      mostrarImagen5.hide();
-      mostrarImagen6.hide();
-      mostrarImagen7.hide();
-    });
+  
   
     function open() {
       envelope.addClass("open")
